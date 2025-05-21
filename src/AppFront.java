@@ -54,7 +54,7 @@ public class AppFront extends javax.swing.JFrame {
             String forUser     = raf.readLine().substring(9);
             String forPassword = raf.readLine().substring(9);
             if (usr.equals(forUser)&(pwd.equals(forPassword))){
-                AplikasiTiket app = new AplikasiTiket();
+                PemesananTiketBioskopMini app = new PemesananTiketBioskopMini();
                 app.show(); //buat nampilin windows buat pesen tiket
                 dispose();
                 break;
