@@ -30,6 +30,18 @@ public class Register extends javax.swing.JFrame {
     void createFolder(){
         if (!f.exists()){
             f.mkdirs();
+            try {
+            RandomAccessFile raf = new RandomAccessFile(f+"\\logins.txt", "rw");
+            for(int i = 0;i<ln;i++){
+                raf.readLine();
+            }
+            raf.writeBytes("Username:default\r\n");
+            raf.writeBytes("Password:default");
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
+        }
         }
     }
     
