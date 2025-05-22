@@ -19,54 +19,44 @@ import javax.swing.JOptionPane;
  * @author shado
  */
 public class AppFront extends javax.swing.JFrame {
-    File f = new File("C:\\Users\\shado\\Documents\\Login");
+    File f = new File("src");
     
     String user,password;
     int ln;
-
-    //Untuk Mengecek data
-    void checkData(String usr, String pwd){
-        try {
-            RandomAccessFile raf = new RandomAccessFile(f+"\\logins.txt", "rw");
-            String line = raf.readLine();
-            user = line.substring(9);
-            password = raf.readLine().substring(9);
-            if(usr.equals(user)&pwd.equals(password)){
-                AplikasiTiket app = new AplikasiTiket(); //Ganti sesuai nama GUI pemesanan tiket
-                app.show(); //buat nampilin windows buat pesen tiket
-                dispose();
-            } else{
-                JOptionPane.showMessageDialog(null, "Wrong user/password");
-                AppFront p = new AppFront();
-                p.show();
-            }
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(AppFront.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(AppFront.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    } 
     
     void logic(String usr, String pwd){
         try {
-            RandomAccessFile raf = new RandomAccessFile(f+"\\logins.txt", "rw");
-            for(int i=0;i<ln;i+=4){
-            String forUser     = raf.readLine().substring(9);
-            String forPassword = raf.readLine().substring(9);
-            if (usr.equals(forUser)&(pwd.equals(forPassword))){
-                AplikasiTiket app = new AplikasiTiket();
-                app.show(); //buat nampilin windows buat pesen tiket
-                dispose();
-                break;
-            } else if(i==(ln-2)){
-                JOptionPane.showMessageDialog(null, "wrong user/password");
-                break;
-            }
-            for(int j =1;j<=2;j++){
-                raf.readLine();
+        RandomAccessFile raf = new RandomAccessFile(f + "logins.txt", "r");
+        String line;
+        boolean found = false;
+
+        while ((line = raf.readLine()) != null) {
+            if (line.startsWith("Username:")) {
+                String forUser = line.length() >= 9 ? line.substring(9).trim() : "";
+                String passLine = raf.readLine(); // baca baris berikutnya (Password)
+
+                if (passLine != null && passLine.startsWith("Password:")) {
+                    String forPassword = passLine.length() >= 9 ? passLine.substring(9).trim() : "";
+
+                    if (usr.equals(forUser) && pwd.equals(forPassword)) {
+                        found = true;
+                        SelamatDatang app = new SelamatDatang();
+                        app.setVisible(true);
+                        this.dispose();
+                        break;
+                    }
+                }
             }
         }
-            ln = 0;
+
+        if (!found) {
+            JOptionPane.showMessageDialog(null, "Wrong user/password");
+            AppFront p = new AppFront();
+            p.setVisible(true);
+        }
+
+        raf.close();
+
         } catch (FileNotFoundException ex) {
             Logger.getLogger(AppFront.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
@@ -77,11 +67,11 @@ public class AppFront extends javax.swing.JFrame {
     
     void countLines(){
         try {
-            RandomAccessFile raf = new RandomAccessFile(f+"\\logins.txt", "rw");
-            for (int i=0; raf.readLine() !=null;i++){
+            RandomAccessFile raf = new RandomAccessFile(f + "logins.txt", "r");
+            while (raf.readLine() != null) {
                 ln++;
             }
-            System.out.println("number of lines: " + ln);
+            raf.close();
         } catch (FileNotFoundException ex) {
             Logger.getLogger(AppFront.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
@@ -90,18 +80,21 @@ public class AppFront extends javax.swing.JFrame {
     }
     
     void readFile(){
-        try {
-            FileReader fr = new FileReader(f+"\\logins.txt");
-            System.err.println("file exist!");
-        } catch (FileNotFoundException ex) {
+        File file = new File(f + "logins.txt");
+
+        if (file.exists()) {
+            System.out.println("File exists.");
+        } else {
             try {
-                FileWriter fw = new FileWriter(f+"\\logins.txt");
-                System.out.println("File Created");
-            } catch (IOException ex1) {
-                Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex1);
+                if (file.createNewFile()) {
+                    System.out.println("File created: " + file.getName());
+                } else {
+                    System.out.println("Failed to created file.");
+                }
+            } catch (IOException | SecurityException e) {
+                Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, e);
             }
         }
-        
     }
     
     
@@ -122,9 +115,9 @@ public class AppFront extends javax.swing.JFrame {
         Register = new javax.swing.JButton();
         tfusr = new javax.swing.JTextField();
         Login = new javax.swing.JButton();
-        tfpwd = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        tfpwd = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -153,17 +146,17 @@ public class AppFront extends javax.swing.JFrame {
             }
         });
 
-        tfpwd.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfpwdActionPerformed(evt);
-            }
-        });
-
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel1.setText("Username :");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel2.setText("Password : ");
+
+        tfpwd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfpwdActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -181,23 +174,23 @@ public class AppFront extends javax.swing.JFrame {
                     .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tfusr, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfpwd, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(tfusr, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE)
+                    .addComponent(tfpwd))
                 .addGap(125, 125, 125))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(76, Short.MAX_VALUE)
+                .addContainerGap(58, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(tfusr, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
+                .addGap(35, 35, 35)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfpwd, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addGap(74, 74, 74)
+                    .addComponent(jLabel2)
+                    .addComponent(tfpwd, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(83, 83, 83)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Register, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Login, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -237,7 +230,7 @@ public class AppFront extends javax.swing.JFrame {
     private void LoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginActionPerformed
         countLines();
         readFile();
-        logic(tfusr.getText(),tfpwd.getText());
+        logic(tfusr.getText(), new String(tfpwd.getPassword()));
     }//GEN-LAST:event_LoginActionPerformed
 
     private void tfpwdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfpwdActionPerformed
@@ -285,7 +278,7 @@ public class AppFront extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField tfpwd;
+    private javax.swing.JPasswordField tfpwd;
     private javax.swing.JTextField tfusr;
     // End of variables declaration//GEN-END:variables
 }

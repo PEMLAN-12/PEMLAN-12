@@ -21,7 +21,7 @@ public class Register extends javax.swing.JFrame {
     int ln;
     String usr,pwd;
     
-    File f = new File("C:\\Users\\shado\\Documents\\Login");
+    File f = new File("src");
     
     public Register() {
         initComponents();
@@ -35,11 +35,11 @@ public class Register extends javax.swing.JFrame {
     
     public void readFile(){
         try {
-            FileReader fr = new FileReader(f+"\\logins.txt");
+            FileReader fr = new FileReader(f+"logins.txt");
             System.err.println("file exist!");
         } catch (FileNotFoundException ex) {
             try {
-                FileWriter fw = new FileWriter(f+"\\logins.txt");
+                FileWriter fw = new FileWriter(f+"logins.txt");
                 System.out.println("File Created");
             } catch (IOException ex1) {
                 Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex1);
@@ -50,13 +50,15 @@ public class Register extends javax.swing.JFrame {
     
     void addData(String usr, String pwd){
         try {
-            RandomAccessFile raf = new RandomAccessFile(f+"\\logins.txt", "rw");
+            RandomAccessFile raf = new RandomAccessFile(f+"logins.txt", "rw");
             for(int i = 0;i<ln;i++){
                 raf.readLine();
             }
-            raf.writeBytes("\r\n");
-            raf.writeBytes("\r\n");
-            raf.writeBytes("\r\n");
+            raf.seek(raf.length());
+
+            if (raf.length() > 0){
+                raf.writeBytes(System.lineSeparator());
+            }
             raf.writeBytes("Username:" + usr + "\r\n");
             raf.writeBytes("Password:" + pwd);
             dispose();
@@ -69,7 +71,7 @@ public class Register extends javax.swing.JFrame {
     
     void countLines(){
         try {
-            RandomAccessFile raf = new RandomAccessFile(f+"\\logins.txt", "rw");
+            RandomAccessFile raf = new RandomAccessFile(f+"logins.txt", "rw");
             for (int i=0; raf.readLine() !=null;i++){
                 ln++;
             }
@@ -99,8 +101,8 @@ public class Register extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         rusr = new javax.swing.JTextField();
-        rpwd = new javax.swing.JTextField();
         Back = new javax.swing.JButton();
+        rpwd = new javax.swing.JPasswordField();
 
         tfusr.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -134,12 +136,6 @@ public class Register extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel2.setText("Password : ");
 
-        rpwd.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rpwdActionPerformed(evt);
-            }
-        });
-
         Back.setText("Back");
         Back.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -157,17 +153,17 @@ public class Register extends javax.swing.JFrame {
                 .addGap(150, 150, 150))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(jLabel2)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(rpwd, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(44, 44, 44)
-                            .addComponent(jLabel1)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(rusr, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(44, 44, 44)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(rpwd))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(rusr, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(Back)))
@@ -180,15 +176,15 @@ public class Register extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rusr, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
-                .addGap(27, 27, 27)
+                .addGap(35, 35, 35)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(rpwd, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addGap(74, 74, 74)
+                    .addComponent(jLabel2)
+                    .addComponent(rpwd, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(83, 83, 83)
                 .addComponent(RegAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Back, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(10, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -214,10 +210,10 @@ public class Register extends javax.swing.JFrame {
         createFolder();
         readFile();
         countLines();
-        addData(rusr.getText(),rpwd.getText());
+        addData(rusr.getText(), new String(rpwd.getPassword()));
         AppFront af = new AppFront();
-        af.show();
-        dispose();
+        af.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_RegAccountActionPerformed
 
     private void tfusrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfusrActionPerformed
@@ -227,10 +223,6 @@ public class Register extends javax.swing.JFrame {
     private void tfusr1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfusr1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tfusr1ActionPerformed
-
-    private void rpwdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rpwdActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rpwdActionPerformed
 
     private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
         AppFront af = new AppFront();
@@ -279,7 +271,7 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField rpwd;
+    private javax.swing.JPasswordField rpwd;
     private javax.swing.JTextField rusr;
     private javax.swing.JTextField tfusr;
     private javax.swing.JTextField tfusr1;
