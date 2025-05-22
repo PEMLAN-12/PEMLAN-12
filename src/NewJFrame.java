@@ -251,7 +251,7 @@ public class NewJFrame extends javax.swing.JFrame {
                 }
 
                 simpanPesanan(email, film, jam, kursi);
-                javax.swing.JOptionPane.showMessageDialog(null, "Tiket berhasil dipesan!\nFilm: " + email + "\nEmail: " + film + "\nJam: " + jam + "\nKursi: " + kursi);
+                javax.swing.JOptionPane.showMessageDialog(null, "Tiket berhasil dipesan!\nFilm: " + film + "\nEmail: " + email + "\nJam: " + jam + "\nKursi: " + kursi);
             }
         });
     }//GEN-LAST:event_btnPesanActionPerformed
