@@ -1,5 +1,9 @@
 
 import java.awt.Color;
+import java.awt.Component;
+import javax.swing.JButton;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -12,10 +16,13 @@ import java.awt.Color;
  */
 public class PemesananTiketBioskopMini extends javax.swing.JFrame {
 
+    private final AppFront appFront;
+
     /**
      * Creates new form PemesananTiketBioskopMini
      */
-    public PemesananTiketBioskopMini() {
+    public PemesananTiketBioskopMini(AppFront appFront) {
+        this.appFront = appFront;
         initComponents();
     }
 
@@ -35,6 +42,8 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
         dropDownJam = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         dropDownFilm = new javax.swing.JComboBox<>();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         A1 = new javax.swing.JButton();
@@ -81,11 +90,13 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
         E6 = new javax.swing.JButton();
         E7 = new javax.swing.JButton();
         E8 = new javax.swing.JButton();
-        jButton41 = new javax.swing.JButton();
+        btnOrder = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel3.setFont(new java.awt.Font("Poppins", 1, 12)); // NOI18N
         jLabel3.setText("Pilih Jadwal : ");
@@ -93,6 +104,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Poppins", 1, 12)); // NOI18N
         jLabel2.setText("Pilih Film :");
 
+        dropDownJam.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Select Jadwal---" }));
         dropDownJam.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dropDownJamActionPerformed(evt);
@@ -110,6 +122,12 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
             }
         });
 
+        jLabel4.setFont(new java.awt.Font("Poppins", 1, 12)); // NOI18N
+        jLabel4.setText("Username :");
+
+        jLabel5.setFont(new java.awt.Font("Poppins", 1, 12)); // NOI18N
+        jLabel5.setText(appFront.getUserName() + "@student.ub.ac.id");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -121,11 +139,13 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3))
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(130, 130, 130)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(dropDownJam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(dropDownFilm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(dropDownFilm, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(196, 196, 196))
         );
         jPanel3Layout.setVerticalGroup(
@@ -133,6 +153,10 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(dropDownFilm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -140,11 +164,14 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(dropDownJam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addContainerGap(35, Short.MAX_VALUE))
+                    .addComponent(jLabel3)))
         );
 
-        A1.setBackground(Color.green);
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+
+        A1.setBackground(new java.awt.Color(102, 255, 102));
         A1.setText("A1");
         A1.setPreferredSize(new java.awt.Dimension(60, 60));
         A1.addActionListener(new java.awt.event.ActionListener() {
@@ -153,7 +180,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
             }
         });
 
-        A3.setBackground(Color.green);
+        A3.setBackground(new java.awt.Color(102, 255, 102));
         A3.setText("A3");
         A3.setPreferredSize(new java.awt.Dimension(60, 60));
         A3.addActionListener(new java.awt.event.ActionListener() {
@@ -162,7 +189,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
             }
         });
 
-        A2.setBackground(Color.green);
+        A2.setBackground(new java.awt.Color(102, 255, 102));
         A2.setText("A2");
         A2.setPreferredSize(new java.awt.Dimension(60, 60));
         A2.addActionListener(new java.awt.event.ActionListener() {
@@ -171,7 +198,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
             }
         });
 
-        A4.setBackground(Color.green);
+        A4.setBackground(new java.awt.Color(102, 255, 102));
         A4.setText("A4");
         A4.setPreferredSize(new java.awt.Dimension(60, 60));
         A4.addActionListener(new java.awt.event.ActionListener() {
@@ -180,7 +207,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
             }
         });
 
-        A5.setBackground(Color.green);
+        A5.setBackground(new java.awt.Color(102, 255, 102));
         A5.setText("A5");
         A5.setPreferredSize(new java.awt.Dimension(60, 60));
         A5.addActionListener(new java.awt.event.ActionListener() {
@@ -189,7 +216,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
             }
         });
 
-        A6.setBackground(Color.green);
+        A6.setBackground(new java.awt.Color(102, 255, 102));
         A6.setText("A6");
         A6.setPreferredSize(new java.awt.Dimension(60, 60));
         A6.addActionListener(new java.awt.event.ActionListener() {
@@ -198,7 +225,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
             }
         });
 
-        A7.setBackground(Color.green);
+        A7.setBackground(new java.awt.Color(102, 255, 102));
         A7.setText("A7");
         A7.setPreferredSize(new java.awt.Dimension(60, 60));
         A7.addActionListener(new java.awt.event.ActionListener() {
@@ -207,7 +234,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
             }
         });
 
-        A8.setBackground(Color.green);
+        A8.setBackground(new java.awt.Color(102, 255, 102));
         A8.setText("A8");
         A8.setPreferredSize(new java.awt.Dimension(60, 60));
         A8.addActionListener(new java.awt.event.ActionListener() {
@@ -255,7 +282,9 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        B1.setBackground(Color.green);
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+
+        B1.setBackground(new java.awt.Color(102, 255, 102));
         B1.setText("B1");
         B1.setPreferredSize(new java.awt.Dimension(60, 60));
         B1.addActionListener(new java.awt.event.ActionListener() {
@@ -264,7 +293,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
             }
         });
 
-        B3.setBackground(Color.green);
+        B3.setBackground(new java.awt.Color(102, 255, 102));
         B3.setText("B3");
         B3.setPreferredSize(new java.awt.Dimension(60, 60));
         B3.addActionListener(new java.awt.event.ActionListener() {
@@ -273,7 +302,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
             }
         });
 
-        B2.setBackground(Color.green);
+        B2.setBackground(new java.awt.Color(102, 255, 102));
         B2.setText("B2");
         B2.setPreferredSize(new java.awt.Dimension(60, 60));
         B2.addActionListener(new java.awt.event.ActionListener() {
@@ -282,7 +311,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
             }
         });
 
-        B4.setBackground(Color.green);
+        B4.setBackground(new java.awt.Color(102, 255, 102));
         B4.setText("B4");
         B4.setPreferredSize(new java.awt.Dimension(60, 60));
         B4.addActionListener(new java.awt.event.ActionListener() {
@@ -291,7 +320,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
             }
         });
 
-        B5.setBackground(Color.green);
+        B5.setBackground(new java.awt.Color(102, 255, 102));
         B5.setText("B5");
         B5.setPreferredSize(new java.awt.Dimension(60, 60));
         B5.addActionListener(new java.awt.event.ActionListener() {
@@ -300,7 +329,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
             }
         });
 
-        B6.setBackground(Color.green);
+        B6.setBackground(new java.awt.Color(102, 255, 102));
         B6.setText("B6");
         B6.setPreferredSize(new java.awt.Dimension(60, 60));
         B6.addActionListener(new java.awt.event.ActionListener() {
@@ -309,7 +338,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
             }
         });
 
-        B7.setBackground(Color.green);
+        B7.setBackground(new java.awt.Color(102, 255, 102));
         B7.setText("B7");
         B7.setPreferredSize(new java.awt.Dimension(60, 60));
         B7.addActionListener(new java.awt.event.ActionListener() {
@@ -318,7 +347,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
             }
         });
 
-        B8.setBackground(Color.green);
+        B8.setBackground(new java.awt.Color(102, 255, 102));
         B8.setText("B8");
         B8.setPreferredSize(new java.awt.Dimension(60, 60));
         B8.addActionListener(new java.awt.event.ActionListener() {
@@ -366,7 +395,9 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        D1.setBackground(Color.green);
+        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
+
+        D1.setBackground(new java.awt.Color(102, 255, 102));
         D1.setText("D1");
         D1.setPreferredSize(new java.awt.Dimension(60, 60));
         D1.addActionListener(new java.awt.event.ActionListener() {
@@ -375,7 +406,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
             }
         });
 
-        D3.setBackground(Color.green);
+        D3.setBackground(new java.awt.Color(102, 255, 102));
         D3.setText("D3");
         D3.setPreferredSize(new java.awt.Dimension(60, 60));
         D3.addActionListener(new java.awt.event.ActionListener() {
@@ -384,7 +415,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
             }
         });
 
-        D2.setBackground(Color.green);
+        D2.setBackground(new java.awt.Color(102, 255, 102));
         D2.setText("D2");
         D2.setPreferredSize(new java.awt.Dimension(60, 60));
         D2.addActionListener(new java.awt.event.ActionListener() {
@@ -393,7 +424,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
             }
         });
 
-        D4.setBackground(Color.green);
+        D4.setBackground(new java.awt.Color(102, 255, 102));
         D4.setText("D4");
         D4.setPreferredSize(new java.awt.Dimension(60, 60));
         D4.addActionListener(new java.awt.event.ActionListener() {
@@ -402,7 +433,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
             }
         });
 
-        D5.setBackground(Color.green);
+        D5.setBackground(new java.awt.Color(102, 255, 102));
         D5.setText("D5");
         D5.setPreferredSize(new java.awt.Dimension(60, 60));
         D5.addActionListener(new java.awt.event.ActionListener() {
@@ -411,7 +442,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
             }
         });
 
-        D6.setBackground(Color.green);
+        D6.setBackground(new java.awt.Color(102, 255, 102));
         D6.setText("D6");
         D6.setPreferredSize(new java.awt.Dimension(60, 60));
         D6.addActionListener(new java.awt.event.ActionListener() {
@@ -420,7 +451,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
             }
         });
 
-        D7.setBackground(Color.green);
+        D7.setBackground(new java.awt.Color(102, 255, 102));
         D7.setText("D7");
         D7.setPreferredSize(new java.awt.Dimension(60, 60));
         D7.addActionListener(new java.awt.event.ActionListener() {
@@ -429,7 +460,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
             }
         });
 
-        D8.setBackground(Color.green);
+        D8.setBackground(new java.awt.Color(102, 255, 102));
         D8.setText("D8");
         D8.setPreferredSize(new java.awt.Dimension(60, 60));
         D8.addActionListener(new java.awt.event.ActionListener() {
@@ -477,7 +508,9 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        C1.setBackground(Color.green);
+        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
+
+        C1.setBackground(new java.awt.Color(102, 255, 102));
         C1.setText("C1");
         C1.setPreferredSize(new java.awt.Dimension(60, 60));
         C1.addActionListener(new java.awt.event.ActionListener() {
@@ -486,7 +519,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
             }
         });
 
-        C3.setBackground(Color.green);
+        C3.setBackground(new java.awt.Color(102, 255, 102));
         C3.setText("C3");
         C3.setPreferredSize(new java.awt.Dimension(60, 60));
         C3.addActionListener(new java.awt.event.ActionListener() {
@@ -495,7 +528,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
             }
         });
 
-        C2.setBackground(Color.green);
+        C2.setBackground(new java.awt.Color(102, 255, 102));
         C2.setText("C2");
         C2.setPreferredSize(new java.awt.Dimension(60, 60));
         C2.addActionListener(new java.awt.event.ActionListener() {
@@ -504,7 +537,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
             }
         });
 
-        C4.setBackground(Color.green);
+        C4.setBackground(new java.awt.Color(102, 255, 102));
         C4.setText("C4");
         C4.setPreferredSize(new java.awt.Dimension(60, 60));
         C4.addActionListener(new java.awt.event.ActionListener() {
@@ -513,7 +546,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
             }
         });
 
-        C5.setBackground(Color.green);
+        C5.setBackground(new java.awt.Color(102, 255, 102));
         C5.setText("C5");
         C5.setPreferredSize(new java.awt.Dimension(60, 60));
         C5.addActionListener(new java.awt.event.ActionListener() {
@@ -522,7 +555,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
             }
         });
 
-        C6.setBackground(Color.green);
+        C6.setBackground(new java.awt.Color(102, 255, 102));
         C6.setText("C6");
         C6.setPreferredSize(new java.awt.Dimension(60, 60));
         C6.addActionListener(new java.awt.event.ActionListener() {
@@ -531,7 +564,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
             }
         });
 
-        C7.setBackground(Color.green);
+        C7.setBackground(new java.awt.Color(102, 255, 102));
         C7.setText("C7");
         C7.setPreferredSize(new java.awt.Dimension(60, 60));
         C7.addActionListener(new java.awt.event.ActionListener() {
@@ -540,7 +573,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
             }
         });
 
-        C8.setBackground(Color.green);
+        C8.setBackground(new java.awt.Color(102, 255, 102));
         C8.setText("C8");
         C8.setPreferredSize(new java.awt.Dimension(60, 60));
         C8.addActionListener(new java.awt.event.ActionListener() {
@@ -570,7 +603,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
                 .addComponent(C7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(C8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -588,7 +621,9 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        E1.setBackground(Color.green);
+        jPanel8.setBackground(new java.awt.Color(255, 255, 255));
+
+        E1.setBackground(new java.awt.Color(102, 255, 102));
         E1.setText("E1");
         E1.setPreferredSize(new java.awt.Dimension(60, 60));
         E1.addActionListener(new java.awt.event.ActionListener() {
@@ -597,7 +632,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
             }
         });
 
-        E3.setBackground(Color.green);
+        E3.setBackground(new java.awt.Color(102, 255, 102));
         E3.setText("E3");
         E3.setPreferredSize(new java.awt.Dimension(60, 60));
         E3.addActionListener(new java.awt.event.ActionListener() {
@@ -606,7 +641,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
             }
         });
 
-        E2.setBackground(Color.green);
+        E2.setBackground(new java.awt.Color(102, 255, 102));
         E2.setText("E2");
         E2.setPreferredSize(new java.awt.Dimension(60, 60));
         E2.addActionListener(new java.awt.event.ActionListener() {
@@ -615,7 +650,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
             }
         });
 
-        E4.setBackground(Color.green);
+        E4.setBackground(new java.awt.Color(102, 255, 102));
         E4.setText("E4");
         E4.setPreferredSize(new java.awt.Dimension(60, 60));
         E4.addActionListener(new java.awt.event.ActionListener() {
@@ -624,7 +659,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
             }
         });
 
-        E5.setBackground(Color.green);
+        E5.setBackground(new java.awt.Color(102, 255, 102));
         E5.setText("E5");
         E5.setPreferredSize(new java.awt.Dimension(60, 60));
         E5.addActionListener(new java.awt.event.ActionListener() {
@@ -633,7 +668,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
             }
         });
 
-        E6.setBackground(Color.green);
+        E6.setBackground(new java.awt.Color(102, 255, 102));
         E6.setText("E6");
         E6.setPreferredSize(new java.awt.Dimension(60, 60));
         E6.addActionListener(new java.awt.event.ActionListener() {
@@ -642,7 +677,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
             }
         });
 
-        E7.setBackground(Color.green);
+        E7.setBackground(new java.awt.Color(102, 255, 102));
         E7.setText("E7");
         E7.setPreferredSize(new java.awt.Dimension(60, 60));
         E7.addActionListener(new java.awt.event.ActionListener() {
@@ -651,7 +686,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
             }
         });
 
-        E8.setBackground(Color.green);
+        E8.setBackground(new java.awt.Color(102, 255, 102));
         E8.setText("E8");
         E8.setPreferredSize(new java.awt.Dimension(60, 60));
         E8.addActionListener(new java.awt.event.ActionListener() {
@@ -699,8 +734,13 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jButton41.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
-        jButton41.setText("Pesan Tiket Bioskop");
+        btnOrder.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        btnOrder.setText("Pesan Tiket Bioskop");
+        btnOrder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOrderActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -710,17 +750,16 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(92, 92, 92)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(319, 319, 319)
-                        .addComponent(jButton41)))
-                .addContainerGap(95, Short.MAX_VALUE))
+                        .addComponent(btnOrder)))
+                .addContainerGap(107, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -736,7 +775,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
-                .addComponent(jButton41)
+                .addComponent(btnOrder)
                 .addContainerGap(26, Short.MAX_VALUE))
         );
 
@@ -787,38 +826,42 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
     }//GEN-LAST:event_dropDownJamActionPerformed
 
     private void dropDownFilmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dropDownFilmActionPerformed
-        // TODO add your handling code here:
         dropDownJam.removeAllItems();
-        switch (dropDownFilm.getSelectedIndex()) {
-            case 1 -> {
-                dropDownJam.addItem("--Select Jadwal---");
-                dropDownJam.addItem("12:00");
-                dropDownJam.addItem("14:35");
-                dropDownJam.addItem("17:10");
-                dropDownJam.addItem("17:40");
-                dropDownJam.addItem("20:15");
-                dropDownJam.addItem("17:45");
+
+        if (dropDownFilm.getSelectedIndex() > 0) {
+            switch (dropDownFilm.getSelectedIndex()) {
+                case 1 -> {
+                    dropDownJam.addItem("--Select Jadwal---");
+                    dropDownJam.addItem("12:00");
+                    dropDownJam.addItem("14:35");
+                    dropDownJam.addItem("17:10");
+                    dropDownJam.addItem("17:40");
+                    dropDownJam.addItem("20:15");
+                    dropDownJam.addItem("17:45");
+                }
+                case 2 -> {
+                    dropDownJam.addItem("--Select Jadwal---");
+                    dropDownJam.addItem("12:30");
+                    dropDownJam.addItem("15:05");
+                }
+                case 3 -> {
+                    dropDownJam.addItem("--Select Jadwal---");
+                    dropDownJam.addItem("12:20");
+                    dropDownJam.addItem("14:25");
+                    dropDownJam.addItem("18:45");
+                }
+                case 4 -> {
+                    dropDownJam.addItem("--Select Jadwal---");
+                    dropDownJam.addItem("16:30");
+                    dropDownJam.addItem("20:50");
+                }
             }
-            case 2 -> {
-                dropDownJam.addItem("--Select Jadwal---");
-                dropDownJam.addItem("12:30");
-                dropDownJam.addItem("15:05");
-            }
-            case 3 -> {
-                dropDownJam.addItem("--Select Jadwal---");
-                dropDownJam.addItem("12:20");
-                dropDownJam.addItem("14:25");
-                dropDownJam.addItem("18:45");
-            }
-            case 4 -> {
-                dropDownJam.addItem("--Select Jadwal---");
-                dropDownJam.addItem("16:30");
-                dropDownJam.addItem("20:50");
-            }
-            default -> {
-                dropDownJam.addItem("--Select Jadwal---");
-            }
+        } else {
+            dropDownJam.addItem("--Select Jadwal---");
+            
         }
+
+        
     }//GEN-LAST:event_dropDownFilmActionPerformed
 
     private void C6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C6ActionPerformed
@@ -837,6 +880,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
             A1.setBackground(Color.green);
         } else {
             A1.setBackground(Color.red);
+            A1.setName("A1");
         }
     }//GEN-LAST:event_A1ActionPerformed
     
@@ -848,6 +892,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
             A2.setBackground(Color.green);
         } else {
             A2.setBackground(Color.red);
+            A2.setName("A2");
         }
 
     }//GEN-LAST:event_A2ActionPerformed
@@ -860,6 +905,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
             A3.setBackground(Color.green);
         } else {
             A3.setBackground(Color.red);
+            A3.setName("A3");
         }
     }//GEN-LAST:event_A3ActionPerformed
 
@@ -870,6 +916,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
             A4.setBackground(Color.green);
         } else {
             A4.setBackground(Color.red);
+            A4.setName("A4");
         }
 
     }//GEN-LAST:event_A4ActionPerformed
@@ -882,6 +929,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
             A5.setBackground(Color.green);
         } else {
             A5.setBackground(Color.red);
+            A5.setName("A5");
         }
     }//GEN-LAST:event_A5ActionPerformed
 
@@ -892,6 +940,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
             A6.setBackground(Color.green);
         } else {
             A6.setBackground(Color.red);
+            A6.setName("A6");
         }
     }//GEN-LAST:event_A6ActionPerformed
 
@@ -901,6 +950,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
             A7.setBackground(Color.green);
         } else {
             A7.setBackground(Color.red);
+            A7.setName("A7");
         }
     }//GEN-LAST:event_A7ActionPerformed
 
@@ -911,6 +961,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
             A8.setBackground(Color.green);
         } else {
             A8.setBackground(Color.red);
+            A8.setName("A8");
         }
 
     }//GEN-LAST:event_A8ActionPerformed
@@ -921,6 +972,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
             B1.setBackground(Color.green);
         } else {
             B1.setBackground(Color.red);
+            B1.setName("B1");
         }
     }//GEN-LAST:event_B1ActionPerformed
 
@@ -930,6 +982,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
             B2.setBackground(Color.green);
         } else {
             B2.setBackground(Color.red);
+            B2.setName("B2");
         }
     }//GEN-LAST:event_B2ActionPerformed
 
@@ -939,6 +992,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
             B3.setBackground(Color.green);
         } else {
             B3.setBackground(Color.red);
+            B3.setName("B3");
         }
     }//GEN-LAST:event_B3ActionPerformed
 
@@ -948,6 +1002,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
             B4.setBackground(Color.green);
         } else {
             B4.setBackground(Color.red);
+            B4.setName("B4");
         }
     }//GEN-LAST:event_B4ActionPerformed
 
@@ -957,6 +1012,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
             B5.setBackground(Color.green);
         } else {
             B5.setBackground(Color.red);
+            B5.setName("B5");
         }
     }//GEN-LAST:event_B5ActionPerformed
 
@@ -967,6 +1023,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
             B6.setBackground(Color.green);
         } else {
             B6.setBackground(Color.red);
+            B6.setName("B6");
         }
     }//GEN-LAST:event_B6ActionPerformed
 
@@ -976,6 +1033,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
             B7.setBackground(Color.green);
         } else {
             B7.setBackground(Color.red);
+            B7.setName("B7");
         }
     }//GEN-LAST:event_B7ActionPerformed
 
@@ -985,6 +1043,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
             B8.setBackground(Color.green);
         } else {
             B8.setBackground(Color.red);
+            B8.setName("B8");
         }
     }//GEN-LAST:event_B8ActionPerformed
 
@@ -994,6 +1053,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
             C1.setBackground(Color.green);
         } else {
             C1.setBackground(Color.red);
+            C1.setName("C1");
         }
     }//GEN-LAST:event_C1ActionPerformed
 
@@ -1003,6 +1063,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
             C2.setBackground(Color.green);
         } else {
             C2.setBackground(Color.red);
+            C2.setName("C2");
         }
     }//GEN-LAST:event_C2ActionPerformed
 
@@ -1012,6 +1073,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
             C3.setBackground(Color.green);
         } else {
             C3.setBackground(Color.red);
+            C3.setName("C3");
         }
     }//GEN-LAST:event_C3ActionPerformed
 
@@ -1021,6 +1083,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
             C4.setBackground(Color.green);
         } else {
             C4.setBackground(Color.red);
+            C4.setName("C4");
         }
     }//GEN-LAST:event_C4ActionPerformed
 
@@ -1030,6 +1093,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
             C5.setBackground(Color.green);
         } else {
             C5.setBackground(Color.red);
+            C5.setName("C5");
         }
     }//GEN-LAST:event_C5ActionPerformed
 
@@ -1039,6 +1103,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
             C7.setBackground(Color.green);
         } else {
             C7.setBackground(Color.red);
+            C7.setName("C7");
         }
     }//GEN-LAST:event_C7ActionPerformed
 
@@ -1048,6 +1113,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
             C8.setBackground(Color.green);
         } else {
             C8.setBackground(Color.red);
+            C8.setName("C8");
         }
     }//GEN-LAST:event_C8ActionPerformed
 
@@ -1057,6 +1123,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
             D1.setBackground(Color.green);
         } else {
             D1.setBackground(Color.red);
+            D1.setName("D1");
         }
     }//GEN-LAST:event_D1ActionPerformed
 
@@ -1066,6 +1133,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
             D2.setBackground(Color.green);
         } else {
             D2.setBackground(Color.red);
+            D2.setName("D2");
         }
     }//GEN-LAST:event_D2ActionPerformed
 
@@ -1075,6 +1143,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
             D3.setBackground(Color.green);
         } else {
             D3.setBackground(Color.red);
+            D3.setName("D3");
         }
     }//GEN-LAST:event_D3ActionPerformed
 
@@ -1084,6 +1153,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
             D4.setBackground(Color.green);
         } else {
             D4.setBackground(Color.red);
+            D4.setName("D4");
         }
     }//GEN-LAST:event_D4ActionPerformed
 
@@ -1093,6 +1163,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
             D5.setBackground(Color.green);
         } else {
             D5.setBackground(Color.red);
+            D5.setName("D5");
         }
     }//GEN-LAST:event_D5ActionPerformed
 
@@ -1102,6 +1173,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
             D6.setBackground(Color.green);
         } else {
             D6.setBackground(Color.red);
+            D6.setName("D6");
         }
     }//GEN-LAST:event_D6ActionPerformed
 
@@ -1111,6 +1183,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
             D7.setBackground(Color.green);
         } else {
             D7.setBackground(Color.red);
+            D7.setName("D7");
         }
     }//GEN-LAST:event_D7ActionPerformed
 
@@ -1120,6 +1193,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
             D8.setBackground(Color.green);
         } else {
             D8.setBackground(Color.red);
+            D8.setName("D8");
         }
     }//GEN-LAST:event_D8ActionPerformed
 
@@ -1129,6 +1203,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
             E1.setBackground(Color.green);
         } else {
             E1.setBackground(Color.red);
+            E1.setName("E1");
         }
     }//GEN-LAST:event_E1ActionPerformed
 
@@ -1138,6 +1213,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
             E2.setBackground(Color.green);
         } else {
             E2.setBackground(Color.red);
+            E2.setName("E2");
         }
     }//GEN-LAST:event_E2ActionPerformed
 
@@ -1148,6 +1224,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
             E3.setBackground(Color.green);
         } else {
             E3.setBackground(Color.red);
+            E3.setName("E3");
         }
     }//GEN-LAST:event_E3ActionPerformed
 
@@ -1157,6 +1234,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
             E4.setBackground(Color.green);
         } else {
             E4.setBackground(Color.red);
+            E4.setName("E4");
         }
     }//GEN-LAST:event_E4ActionPerformed
 
@@ -1166,6 +1244,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
             E5.setBackground(Color.green);
         } else {
             E5.setBackground(Color.red);
+            E5.setName("E5");
         }
     }//GEN-LAST:event_E5ActionPerformed
 
@@ -1175,6 +1254,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
             E6.setBackground(Color.green);
         } else {
             E6.setBackground(Color.red);
+            E6.setName("E6");
         }
     }//GEN-LAST:event_E6ActionPerformed
 
@@ -1184,6 +1264,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
             E7.setBackground(Color.green);
         } else {
             E7.setBackground(Color.red);
+            E7.setName("E7");
         }
     }//GEN-LAST:event_E7ActionPerformed
 
@@ -1193,8 +1274,17 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
             E8.setBackground(Color.green);
         } else {
             E8.setBackground(Color.red);
+            E8.setName("E8");
         }
     }//GEN-LAST:event_E8ActionPerformed
+
+
+
+    private void btnOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderActionPerformed
+        Order order = new Order(this.appFront);
+
+        order.OrderAction(this, dropDownFilm.getSelectedItem().toString(), dropDownJam.getSelectedItem().toString(), jPanel2);
+    }//GEN-LAST:event_btnOrderActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1224,11 +1314,6 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new PemesananTiketBioskopMini().setVisible(true);
-            }
-        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1272,12 +1357,14 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
     private javax.swing.JButton E6;
     private javax.swing.JButton E7;
     private javax.swing.JButton E8;
+    private javax.swing.JButton btnOrder;
     private javax.swing.JComboBox<String> dropDownFilm;
     private javax.swing.JComboBox<String> dropDownJam;
-    private javax.swing.JButton jButton41;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

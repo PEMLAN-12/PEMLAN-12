@@ -1,12 +1,5 @@
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.RandomAccessFile;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /*
@@ -24,82 +17,17 @@ public class AppFront extends javax.swing.JFrame {
     String user,password;
     int ln;
     
-    void logic(String usr, String pwd){
-        try {
-        RandomAccessFile raf = new RandomAccessFile(f + "logins.txt", "r");
-        String line;
-        boolean found = false;
-
-        while ((line = raf.readLine()) != null) {
-            if (line.startsWith("Username:")) {
-                String forUser = line.length() >= 9 ? line.substring(9).trim() : "";
-                String passLine = raf.readLine(); // baca baris berikutnya (Password)
-
-                if (passLine != null && passLine.startsWith("Password:")) {
-                    String forPassword = passLine.length() >= 9 ? passLine.substring(9).trim() : "";
-
-                    if (usr.equals(forUser) && pwd.equals(forPassword)) {
-                        found = true;
-                        SelamatDatang app = new SelamatDatang();
-                        app.setVisible(true);
-                        this.dispose();
-                        break;
-                    }
-                }
-            }
-        }
-
-        if (!found) {
-            JOptionPane.showMessageDialog(null, "Wrong user/password");
-            AppFront p = new AppFront();
-            p.setVisible(true);
-        }
-
-        raf.close();
-
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(AppFront.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(AppFront.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-    }
-    
-    void countLines(){
-        try {
-            RandomAccessFile raf = new RandomAccessFile(f + "logins.txt", "r");
-            while (raf.readLine() != null) {
-                ln++;
-            }
-            raf.close();
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(AppFront.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(AppFront.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-    
-    void readFile(){
-        File file = new File(f + "logins.txt");
-
-        if (file.exists()) {
-            System.out.println("File exists.");
-        } else {
-            try {
-                if (file.createNewFile()) {
-                    System.out.println("File created: " + file.getName());
-                } else {
-                    System.out.println("Failed to created file.");
-                }
-            } catch (IOException | SecurityException e) {
-                Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, e);
-            }
-        }
-    }
-    
     
     public AppFront() {
         initComponents();
+    }
+
+    public String getUserName() {
+        return tfusr.getText();
+    }
+
+    public String getPassword() {
+        return new String(tfpwd.getPassword());
     }
 
     /**
@@ -219,7 +147,7 @@ public class AppFront extends javax.swing.JFrame {
 
     private void RegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterActionPerformed
         Register R = new Register();
-        R.show();
+        R.setVisible(true);
         dispose();
     }//GEN-LAST:event_RegisterActionPerformed
 
@@ -228,9 +156,17 @@ public class AppFront extends javax.swing.JFrame {
     }//GEN-LAST:event_tfusrActionPerformed
 
     private void LoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginActionPerformed
-        countLines();
-        readFile();
-        logic(tfusr.getText(), new String(tfpwd.getPassword()));
+        String usr = tfusr.getText();
+        String pwd = new String(tfpwd.getPassword());
+        Customer c = new Customer(usr, pwd);
+        
+        if (usr.isEmpty() || pwd.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Username and Password cannot be empty", "Error", JOptionPane.ERROR_MESSAGE);
+        } else {
+            c.countLines();
+            c.readFile();
+            c.logicLogin(usr, pwd, this);
+        }
     }//GEN-LAST:event_LoginActionPerformed
 
     private void tfpwdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfpwdActionPerformed
@@ -278,7 +214,7 @@ public class AppFront extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPasswordField tfpwd;
-    private javax.swing.JTextField tfusr;
+    public javax.swing.JPasswordField tfpwd;
+    public javax.swing.JTextField tfusr;
     // End of variables declaration//GEN-END:variables
 }

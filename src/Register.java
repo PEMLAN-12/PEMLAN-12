@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -26,12 +27,6 @@ public class Register extends javax.swing.JFrame {
     public Register() {
         initComponents();
     }
-
-    void createFolder(){
-        if (!f.exists()){
-            f.mkdirs();
-        }
-    }
     
     public void readFile(){
         try {
@@ -47,44 +42,7 @@ public class Register extends javax.swing.JFrame {
         }
         
     }
-    
-    void addData(String usr, String pwd){
-        try {
-            RandomAccessFile raf = new RandomAccessFile(f+"logins.txt", "rw");
-            for(int i = 0;i<ln;i++){
-                raf.readLine();
-            }
-            raf.seek(raf.length());
 
-            if (raf.length() > 0){
-                raf.writeBytes(System.lineSeparator());
-            }
-            raf.writeBytes("Username:" + usr + "\r\n");
-            raf.writeBytes("Password:" + pwd);
-            dispose();
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-    
-    void countLines(){
-        try {
-            RandomAccessFile raf = new RandomAccessFile(f+"logins.txt", "rw");
-            for (int i=0; raf.readLine() !=null;i++){
-                ln++;
-            }
-            System.out.println("number of lines: " + ln);
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(AppFront.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(AppFront.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-    
-    
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -207,13 +165,23 @@ public class Register extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void RegAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegAccountActionPerformed
-        createFolder();
-        readFile();
-        countLines();
-        addData(rusr.getText(), new String(rpwd.getPassword()));
-        AppFront af = new AppFront();
-        af.setVisible(true);
-        this.dispose();
+        String user = rusr.getText();
+        String password = new String(rpwd.getPassword());
+
+        Customer c = new Customer(user, password);
+
+        if (user.isEmpty() || password.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Username and Password cannot be empty", "Error", JOptionPane.ERROR_MESSAGE);
+        } else {
+            c.createFolder();
+            c.readFile();
+            c.countLines();
+            c.addDataCustomer(user, password);
+            
+            AppFront af = new AppFront();
+            af.setVisible(true);
+            this.dispose();
+        }
     }//GEN-LAST:event_RegAccountActionPerformed
 
     private void tfusrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfusrActionPerformed
@@ -226,8 +194,8 @@ public class Register extends javax.swing.JFrame {
 
     private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
         AppFront af = new AppFront();
-        af.show();
-        dispose();
+        af.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_BackActionPerformed
 
     /**
