@@ -11,17 +11,10 @@ public class Customer {
     private final String user;
     private final String password;
     private int ln =0;
-    private AppFront appFront;
 
     public Customer(String userName, String password) {
         this.user = userName;
         this.password = password;
-    }
-
-    public Customer(AppFront appFront) {
-        this.appFront = appFront;
-        this.user = appFront.getUserName();
-        this.password = appFront.getPassword();
     }
 
     public String getUser() {

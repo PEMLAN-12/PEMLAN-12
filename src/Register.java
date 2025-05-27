@@ -27,22 +27,6 @@ public class Register extends javax.swing.JFrame {
     public Register() {
         initComponents();
     }
-    
-    public void readFile(){
-        try {
-            FileReader fr = new FileReader(f+"logins.txt");
-            System.err.println("file exist!");
-        } catch (FileNotFoundException ex) {
-            try {
-                FileWriter fw = new FileWriter(f+"logins.txt");
-                System.out.println("File Created");
-            } catch (IOException ex1) {
-                Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex1);
-            }
-        }
-        
-    }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
