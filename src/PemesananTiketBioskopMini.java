@@ -1297,19 +1297,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
         return dropDownJam.getSelectedItem().toString();
     }
 
-    public double getTotalPrice() {
-        double price = 0.0;
-        for (Component component : jPanel2.getComponents()) {
-            if (component instanceof JPanel panel) {
-                for (Component button : panel.getComponents()) {
-                    if (button instanceof JButton && button.getBackground().equals(Color.red)) {
-                        price += 50_000; // Assuming each ticket costs 50,000
-                    }
-                }
-            }
-        }
-        return price;
-    }
+    
 
     /**
      * @param args the command line arguments

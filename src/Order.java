@@ -1,6 +1,8 @@
 
 import java.awt.Color;
 import java.awt.Component;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -59,6 +61,29 @@ public class Order {
             invoice.setVisible(true);
             app.dispose();
         }
+    }
+
+    public String formatPrice(double price) {
+        DecimalFormatSymbols symbols = new DecimalFormatSymbols();
+        symbols.setGroupingSeparator('.');
+        symbols.setDecimalSeparator(',');
+
+        DecimalFormat formatter = new DecimalFormat("#,###", symbols);
+        return formatter.format(price);
+    }
+
+    public double getTotalPrice(JPanel seatPanel) {
+        double price = 0.0;
+        for (Component component : seatPanel.getComponents()) {
+            if (component instanceof JPanel panel) {
+                for (Component button : panel.getComponents()) {
+                    if (button instanceof JButton && button.getBackground().equals(Color.red)) {
+                        price += 50_000; // Assuming each ticket costs 50,000
+                    }
+                }
+            }
+        }
+        return price;
     }
 }
 

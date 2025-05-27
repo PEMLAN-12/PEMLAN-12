@@ -52,8 +52,6 @@ public class Customer {
 
         if (!found) {
             JOptionPane.showMessageDialog(null, "Wrong user/password", "Error", JOptionPane.ERROR_MESSAGE);
-            AppFront p = new AppFront();
-            p.setVisible(true);
         }
 
     } catch (FileNotFoundException ex) {

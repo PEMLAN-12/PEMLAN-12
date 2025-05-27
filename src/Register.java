@@ -1,12 +1,5 @@
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.RandomAccessFile;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /*
@@ -19,10 +12,6 @@ import javax.swing.JOptionPane;
  * @author shado
  */
 public class Register extends javax.swing.JFrame {
-    int ln;
-    String usr,pwd;
-    
-    File f = new File("src");
     
     public Register() {
         initComponents();

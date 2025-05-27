@@ -1,6 +1,4 @@
 
-import java.text.DecimalFormat;
-import java.text.DecimalFormatSymbols;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -95,7 +93,7 @@ public class Invoice extends javax.swing.JFrame {
         usernameEdited.setText(appFront.getUserName());
 
         totalPriceEdited.setFont(new java.awt.Font("Poppins SemiBold", 1, 12)); // NOI18N
-        totalPriceEdited.setText("Rp. " + formatPrice(pemesananTiketBioskopMini.getTotalPrice()));
+        totalPriceEdited.setText("Rp. " + order.formatPrice(order.getTotalPrice(pemesananTiketBioskopMini.getPanel())));
 
         JudulEdited.setFont(new java.awt.Font("Poppins SemiBold", 1, 12)); // NOI18N
         JudulEdited.setText(pemesananTiketBioskopMini.getSelectedFilm());
@@ -216,14 +214,7 @@ public class Invoice extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private String formatPrice(double price) {
-        DecimalFormatSymbols symbols = new DecimalFormatSymbols();
-        symbols.setGroupingSeparator('.');
-        symbols.setDecimalSeparator(',');
 
-        DecimalFormat formatter = new DecimalFormat("#,###", symbols);
-        return formatter.format(price);
-    }
 
     /**
      * @param args the command line arguments
