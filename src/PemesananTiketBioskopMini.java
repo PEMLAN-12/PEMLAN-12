@@ -820,6 +820,10 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public JPanel getPanel() {
+        return jPanel2;
+    }
+
     private void dropDownJamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dropDownJamActionPerformed
         // TODO add your handling code here:
         
@@ -1279,12 +1283,33 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
     }//GEN-LAST:event_E8ActionPerformed
 
 
-
     private void btnOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderActionPerformed
-        Order order = new Order(this.appFront);
+        Order order = new Order(appFront, this);
 
         order.OrderAction(this, dropDownFilm.getSelectedItem().toString(), dropDownJam.getSelectedItem().toString(), jPanel2);
     }//GEN-LAST:event_btnOrderActionPerformed
+
+    public String getSelectedFilm() {
+        return dropDownFilm.getSelectedItem().toString();
+    }
+
+    public String getSelectedJam() {
+        return dropDownJam.getSelectedItem().toString();
+    }
+
+    public double getTotalPrice() {
+        double price = 0.0;
+        for (Component component : jPanel2.getComponents()) {
+            if (component instanceof JPanel panel) {
+                for (Component button : panel.getComponents()) {
+                    if (button instanceof JButton && button.getBackground().equals(Color.red)) {
+                        price += 50_000; // Assuming each ticket costs 50,000
+                    }
+                }
+            }
+        }
+        return price;
+    }
 
     /**
      * @param args the command line arguments

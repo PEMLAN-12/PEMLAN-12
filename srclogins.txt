@@ -3,3 +3,5 @@ Password:admin
 
 Username:zaidrabbani65
 Password:kucinglucu84
+Username:fawwaz
+Password:fawaz

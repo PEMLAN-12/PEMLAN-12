@@ -18,6 +18,12 @@ public class Customer {
         this.password = password;
     }
 
+    public Customer(AppFront appFront) {
+        this.appFront = appFront;
+        this.user = appFront.getUserName();
+        this.password = appFront.getPassword();
+    }
+
     public String getUser() {
         return user;
     }
@@ -36,13 +42,10 @@ public class Customer {
             if (line.startsWith("Username:")) {
                 String forUser = line.length() >= 9 ? line.substring(9).trim() : "";
                 String passLine = raf.readLine(); // baca baris berikutnya (Password)
-
                 if (passLine != null && passLine.startsWith("Password:")) {
                     String forPassword = passLine.length() >= 9 ? passLine.substring(9).trim() : "";
-
                     if (usr.equals(forUser) && pwd.equals(forPassword)) {
                         found = true;
-
                         PemesananTiketBioskopMini app = new PemesananTiketBioskopMini(loginWindow);
                         app.setVisible(true);
                         loginWindow.dispose();

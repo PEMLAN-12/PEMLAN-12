@@ -9,8 +9,10 @@ import javax.swing.JPanel;
 
 public class Order {
     private final AppFront appFront;
+    private final PemesananTiketBioskopMini app;
 
-    public Order(AppFront appFront){
+    public Order(AppFront appFront, PemesananTiketBioskopMini app) {
+        this.app = app;
         this.appFront = appFront;
     }
 
@@ -27,7 +29,7 @@ public class Order {
     }
 
     public boolean isValidSelection(String filmName, String jamTayang) {
-        return !(filmName.equals("---Select Option---")) || jamTayang.equals("--Select Jadwal---");
+        return !(filmName.equals("---Select Option---")) && !(jamTayang.equals("--Select Jadwal---"));
     }
 
     public String getSelectedSeats(JPanel seatPanel) {
@@ -52,19 +54,11 @@ public class Order {
 
         if (!isValidSelection(filmName, jamTayang)) {
             JOptionPane.showMessageDialog(parent, "Silahkan pilih film dan jam tayang", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
+        } else {
+            Invoice invoice = new Invoice(appFront, app, this);
+            invoice.setVisible(true);
+            app.dispose();
         }
-
-        String userName = getUserName();
-        String selectedSeats = getSelectedSeats(seatPanel);
-
-        JOptionPane.showMessageDialog(parent,
-                "Nama: " + userName +
-                        "\nFilm: " + filmName +
-                        "\nJam: " + jamTayang +
-                        "\nKursi yang dipilih: " + selectedSeats,
-                "Pesanan Tiket",
-                JOptionPane.INFORMATION_MESSAGE);
     }
 }
 
