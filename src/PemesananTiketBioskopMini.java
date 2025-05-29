@@ -871,7 +871,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
     private void C6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C6ActionPerformed
         Color currentColor = C6.getBackground();
         if (currentColor.equals(Color.red)) {
-            C6.setBackground(Color.green);
+            JOptionPane.showMessageDialog(this, "Kursi sudah dipesan", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
             C6.setBackground(Color.red);
         }
@@ -881,7 +881,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
         Color currentColor = A1.getBackground();
         
         if (currentColor.equals(Color.red)) {
-            A1.setBackground(Color.green);
+            JOptionPane.showMessageDialog(this, "Kursi sudah dipesan", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
             A1.setBackground(Color.red);
             A1.setName("A1");
@@ -893,7 +893,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
         Color currentColor = A2.getBackground();
 
         if (currentColor.equals(Color.red)) {
-            A2.setBackground(Color.green);
+            JOptionPane.showMessageDialog(this, "Kursi sudah dipesan", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
             A2.setBackground(Color.red);
             A2.setName("A2");
@@ -906,7 +906,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
         Color currentColor = A3.getBackground();
 
         if (currentColor.equals(Color.red)) {
-            A3.setBackground(Color.green);
+            JOptionPane.showMessageDialog(this, "Kursi sudah dipesan", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
             A3.setBackground(Color.red);
             A3.setName("A3");
@@ -917,7 +917,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
 
         Color currentColor = A4.getBackground();
         if (currentColor.equals(Color.red)) {
-            A4.setBackground(Color.green);
+            JOptionPane.showMessageDialog(this, "Kursi sudah dipesan", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
             A4.setBackground(Color.red);
             A4.setName("A4");
@@ -930,7 +930,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
         Color currentColor = A5.getBackground();
 
         if (currentColor.equals(Color.red)) {
-            A5.setBackground(Color.green);
+            JOptionPane.showMessageDialog(this, "Kursi sudah dipesan", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
             A5.setBackground(Color.red);
             A5.setName("A5");
@@ -941,7 +941,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
 
         Color currentColor = A6.getBackground();
         if (currentColor.equals(Color.red)) {
-            A6.setBackground(Color.green);
+            JOptionPane.showMessageDialog(this, "Kursi sudah dipesan", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
             A6.setBackground(Color.red);
             A6.setName("A6");
@@ -951,7 +951,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
     private void A7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A7ActionPerformed
         Color currentColor = A7.getBackground();
         if (currentColor.equals(Color.red)) {
-            A7.setBackground(Color.green);
+            JOptionPane.showMessageDialog(this, "Kursi sudah dipesan", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
             A7.setBackground(Color.red);
             A7.setName("A7");
@@ -962,7 +962,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
 
         Color currentColor = A8.getBackground();
         if (currentColor.equals(Color.red)) {
-            A8.setBackground(Color.green);
+            JOptionPane.showMessageDialog(this, "Kursi sudah dipesan", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
             A8.setBackground(Color.red);
             A8.setName("A8");
@@ -973,7 +973,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
     private void B1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B1ActionPerformed
         Color currentColor = B1.getBackground();
         if (currentColor.equals(Color.red)) {
-            B1.setBackground(Color.green);
+            JOptionPane.showMessageDialog(this, "Kursi sudah dipesan", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
             B1.setBackground(Color.red);
             B1.setName("B1");
@@ -983,7 +983,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
     private void B2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B2ActionPerformed
         Color currentColor = B2.getBackground();
         if (currentColor.equals(Color.red)) {
-            B2.setBackground(Color.green);
+            JOptionPane.showMessageDialog(this, "Kursi sudah dipesan", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
             B2.setBackground(Color.red);
             B2.setName("B2");
@@ -993,7 +993,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
     private void B3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B3ActionPerformed
         Color currentColor = B3.getBackground();
         if (currentColor.equals(Color.red)) {
-            B3.setBackground(Color.green);
+            JOptionPane.showMessageDialog(this, "Kursi sudah dipesan", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
             B3.setBackground(Color.red);
             B3.setName("B3");
@@ -1003,7 +1003,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
     private void B4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B4ActionPerformed
         Color currentColor = B4.getBackground();
         if (currentColor.equals(Color.red)) {
-            B4.setBackground(Color.green);
+            JOptionPane.showMessageDialog(this, "Kursi sudah dipesan", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
             B4.setBackground(Color.red);
             B4.setName("B4");
@@ -1013,7 +1013,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
     private void B5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B5ActionPerformed
         Color currentColor = B5.getBackground();
         if (currentColor.equals(Color.red)) {
-            B5.setBackground(Color.green);
+            JOptionPane.showMessageDialog(this, "Kursi sudah dipesan", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
             B5.setBackground(Color.red);
             B5.setName("B5");
@@ -1024,7 +1024,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
 
         Color currentColor = B6.getBackground();
         if (currentColor.equals(Color.red)) {
-            B6.setBackground(Color.green);
+            JOptionPane.showMessageDialog(this, "Kursi sudah dipesan", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
             B6.setBackground(Color.red);
             B6.setName("B6");
@@ -1034,7 +1034,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
     private void B7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B7ActionPerformed
         Color currentColor = B7.getBackground();
         if (currentColor.equals(Color.red)) {
-            B7.setBackground(Color.green);
+            JOptionPane.showMessageDialog(this, "Kursi sudah dipesan", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
             B7.setBackground(Color.red);
             B7.setName("B7");
@@ -1044,7 +1044,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
     private void B8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B8ActionPerformed
         Color currentColor = B8.getBackground();
         if (currentColor.equals(Color.red)) {
-            B8.setBackground(Color.green);
+            JOptionPane.showMessageDialog(this, "Kursi sudah dipesan", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
             B8.setBackground(Color.red);
             B8.setName("B8");
@@ -1054,7 +1054,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
     private void C1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C1ActionPerformed
         Color currentColor = C1.getBackground();
         if (currentColor.equals(Color.red)) {
-            C1.setBackground(Color.green);
+            JOptionPane.showMessageDialog(this, "Kursi sudah dipesan", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
             C1.setBackground(Color.red);
             C1.setName("C1");
@@ -1064,7 +1064,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
     private void C2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C2ActionPerformed
         Color currentColor = C2.getBackground();
         if (currentColor.equals(Color.red)) {
-            C2.setBackground(Color.green);
+            JOptionPane.showMessageDialog(this, "Kursi sudah dipesan", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
             C2.setBackground(Color.red);
             C2.setName("C2");
@@ -1074,7 +1074,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
     private void C3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C3ActionPerformed
         Color currentColor = C3.getBackground();
         if (currentColor.equals(Color.red)) {
-            C3.setBackground(Color.green);
+            JOptionPane.showMessageDialog(this, "Kursi sudah dipesan", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
             C3.setBackground(Color.red);
             C3.setName("C3");
@@ -1084,7 +1084,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
     private void C4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C4ActionPerformed
         Color currentColor = C4.getBackground();
         if (currentColor.equals(Color.red)) {
-            C4.setBackground(Color.green);
+            JOptionPane.showMessageDialog(this, "Kursi sudah dipesan", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
             C4.setBackground(Color.red);
             C4.setName("C4");
@@ -1094,7 +1094,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
     private void C5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C5ActionPerformed
         Color currentColor = C5.getBackground();
         if (currentColor.equals(Color.red)) {
-            C5.setBackground(Color.green);
+            JOptionPane.showMessageDialog(this, "Kursi sudah dipesan", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
             C5.setBackground(Color.red);
             C5.setName("C5");
@@ -1104,7 +1104,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
     private void C7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C7ActionPerformed
         Color currentColor = C7.getBackground();
         if (currentColor.equals(Color.red)) {
-            C7.setBackground(Color.green);
+            JOptionPane.showMessageDialog(this, "Kursi sudah dipesan", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
             C7.setBackground(Color.red);
             C7.setName("C7");
@@ -1114,7 +1114,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
     private void C8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C8ActionPerformed
         Color currentColor = C8.getBackground();
         if (currentColor.equals(Color.red)) {
-            C8.setBackground(Color.green);
+            JOptionPane.showMessageDialog(this, "Kursi sudah dipesan", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
             C8.setBackground(Color.red);
             C8.setName("C8");
@@ -1124,7 +1124,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
     private void D1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_D1ActionPerformed
         Color currentColor = D1.getBackground();
         if (currentColor.equals(Color.red)) {
-            D1.setBackground(Color.green);
+            JOptionPane.showMessageDialog(this, "Kursi sudah dipesan", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
             D1.setBackground(Color.red);
             D1.setName("D1");
@@ -1134,7 +1134,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
     private void D2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_D2ActionPerformed
         Color currentColor = D2.getBackground();
         if (currentColor.equals(Color.red)) {
-            D2.setBackground(Color.green);
+            JOptionPane.showMessageDialog(this, "Kursi sudah dipesan", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
             D2.setBackground(Color.red);
             D2.setName("D2");
@@ -1144,7 +1144,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
     private void D3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_D3ActionPerformed
         Color currentColor = D3.getBackground();
         if (currentColor.equals(Color.red)) {
-            D3.setBackground(Color.green);
+            JOptionPane.showMessageDialog(this, "Kursi sudah dipesan", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
             D3.setBackground(Color.red);
             D3.setName("D3");
@@ -1154,7 +1154,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
     private void D4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_D4ActionPerformed
         Color currentColor = D4.getBackground();
         if (currentColor.equals(Color.red)) {
-            D4.setBackground(Color.green);
+            JOptionPane.showMessageDialog(this, "Kursi sudah dipesan", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
             D4.setBackground(Color.red);
             D4.setName("D4");
@@ -1164,7 +1164,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
     private void D5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_D5ActionPerformed
         Color currentColor = D5.getBackground();
         if (currentColor.equals(Color.red)) {
-            D5.setBackground(Color.green);
+            JOptionPane.showMessageDialog(this, "Kursi sudah dipesan", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
             D5.setBackground(Color.red);
             D5.setName("D5");
@@ -1174,7 +1174,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
     private void D6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_D6ActionPerformed
         Color currentColor = D6.getBackground();
         if (currentColor.equals(Color.red)) {
-            D6.setBackground(Color.green);
+            JOptionPane.showMessageDialog(this, "Kursi sudah dipesan", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
             D6.setBackground(Color.red);
             D6.setName("D6");
@@ -1184,7 +1184,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
     private void D7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_D7ActionPerformed
         Color currentColor = D7.getBackground();
         if (currentColor.equals(Color.red)) {
-            D7.setBackground(Color.green);
+            JOptionPane.showMessageDialog(this, "Kursi sudah dipesan", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
             D7.setBackground(Color.red);
             D7.setName("D7");
@@ -1194,7 +1194,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
     private void D8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_D8ActionPerformed
         Color currentColor = D8.getBackground();
         if (currentColor.equals(Color.red)) {
-            D8.setBackground(Color.green);
+            JOptionPane.showMessageDialog(this, "Kursi sudah dipesan", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
             D8.setBackground(Color.red);
             D8.setName("D8");
@@ -1204,7 +1204,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
     private void E1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_E1ActionPerformed
         Color currentColor = E1.getBackground();
         if (currentColor.equals(Color.red)) {
-            E1.setBackground(Color.green);
+            JOptionPane.showMessageDialog(this, "Kursi sudah dipesan", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
             E1.setBackground(Color.red);
             E1.setName("E1");
@@ -1214,7 +1214,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
     private void E2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_E2ActionPerformed
         Color currentColor = E2.getBackground();
         if (currentColor.equals(Color.red)) {
-            E2.setBackground(Color.green);
+            JOptionPane.showMessageDialog(this, "Kursi sudah dipesan", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
             E2.setBackground(Color.red);
             E2.setName("E2");
@@ -1225,7 +1225,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
         E3.setBackground(Color.red);
         Color currentColor = E3.getBackground();
         if (currentColor.equals(Color.red)) {
-            E3.setBackground(Color.green);
+            JOptionPane.showMessageDialog(this, "Kursi sudah dipesan", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
             E3.setBackground(Color.red);
             E3.setName("E3");
@@ -1235,7 +1235,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
     private void E4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_E4ActionPerformed
         Color currentColor = E4.getBackground();
         if (currentColor.equals(Color.red)) {
-            E4.setBackground(Color.green);
+            JOptionPane.showMessageDialog(this, "Kursi sudah dipesan", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
             E4.setBackground(Color.red);
             E4.setName("E4");
@@ -1245,7 +1245,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
     private void E5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_E5ActionPerformed
         Color currentColor = E5.getBackground();
         if (currentColor.equals(Color.red)) {
-            E5.setBackground(Color.green);
+            JOptionPane.showMessageDialog(this, "Kursi sudah dipesan", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
             E5.setBackground(Color.red);
             E5.setName("E5");
@@ -1255,7 +1255,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
     private void E6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_E6ActionPerformed
         Color currentColor = E6.getBackground();
         if (currentColor.equals(Color.red)) {
-            E6.setBackground(Color.green);
+            JOptionPane.showMessageDialog(this, "Kursi sudah dipesan", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
             E6.setBackground(Color.red);
             E6.setName("E6");
@@ -1265,7 +1265,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
     private void E7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_E7ActionPerformed
         Color currentColor = E7.getBackground();
         if (currentColor.equals(Color.red)) {
-            E7.setBackground(Color.green);
+            JOptionPane.showMessageDialog(this, "Kursi sudah dipesan", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
             E7.setBackground(Color.red);
             E7.setName("E7");
@@ -1275,7 +1275,7 @@ public class PemesananTiketBioskopMini extends javax.swing.JFrame {
     private void E8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_E8ActionPerformed
         Color currentColor = E8.getBackground();
         if (currentColor.equals(Color.red)) {
-            E8.setBackground(Color.green);
+            JOptionPane.showMessageDialog(this, "Kursi sudah dipesan", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
             E8.setBackground(Color.red);
             E8.setName("E8");
