@@ -157,8 +157,8 @@ public class Register extends javax.swing.JFrame {
         } else {
             c.createFolder();
             c.readFile();
-            c.countLines();
             c.addDataCustomer(user, password);
+            c.countLines();
             
             AppFront af = new AppFront();
             af.setVisible(true);
